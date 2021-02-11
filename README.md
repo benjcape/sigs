@@ -20,6 +20,12 @@ The next step is installing this repository on your computer. Run the following 
 git clone https://github.com/benj2468/sigs
 ```
 
+If this doesn't work, you most likely recently upgraded your OS Big Sur - So fucked... /s Run the following and try again:
+
+```
+xcode-select --install
+```
+
 Now, enter into this git repositories directory with the following command:
 
 ```
