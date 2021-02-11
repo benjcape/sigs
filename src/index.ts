@@ -1,6 +1,5 @@
 import readline from "readline";
 import chalk from "chalk";
-import open from "open";
 
 const WHITE_BALL = "⚪";
 const BLACK_BALL = "⚫ ";
@@ -11,7 +10,7 @@ function askQuestion(query: string) {
     output: process.stdout,
   });
 
-  return new Promise((resolve) =>
+  return new Promise<string>((resolve) =>
     rl.question(query, (ans) => {
       rl.close();
       resolve(ans);
@@ -26,8 +25,9 @@ const divider = () => {
 };
 
 const br = async () => {
-  await askQuestion("Press Enter to continue");
-  readline.cursorTo(process.stdout, 0);
+  console.log("");
+  await askQuestion(chalk.yellow("Press Enter to continue"));
+  console.clear();
 };
 
 const intro = async () => {
@@ -37,47 +37,43 @@ const intro = async () => {
       "As a pre-requisite to this project, please have some drink in hand, preferable one that will enhance your experience here."
     )
   );
+  await br();
   await askQuestion(
     "Are you prepared with your drink of choice? (Enter to continue) "
   );
 
   divider();
-  //   const name = await askQuestion('What is your name? ');
-  //   const nickname = await askQuestion('What is your nickname? ');
-  //   const hometown = await askQuestion('Where are you from? ');
-  //   const oneInterestingThing = await askQuestion(
-  //     'Tell me one interesting thing about yourself. '
-  //   );
+  const name = await askQuestion("What is your name? ");
+  const nickname = await askQuestion("What is your nickname? ");
+  const hometown = await askQuestion("Where are you from? ");
+  const oneInterestingThing = await askQuestion(
+    "Tell me one interesting thing about yourself. "
+  );
 
-  //   const mostFucked = await askQuestion('Which brother is the most fucked? ');
+  const mostFucked = await askQuestion("Which rat is the most fucked? ");
 
-  const name = "ben";
-  const nickname = "b";
-  const hometown = "seattle";
-  const oneInterestingThing = "blah";
-
-  const body = `My name is ${name}, but please call me ${nickname}. I am a New Member of the one and only Chi Gamma Epsilon. I am from ${hometown}, and one interesting thing about me is that ${oneInterestingThing}.`;
+  const body = `My name is ${name}, but please call me ${nickname}.\\n\\nI am a New Member of the one and only Chi Gamma Epsilon. I am from ${hometown}, and one interesting thing about me is that ${oneInterestingThing}.\\n\\nMost Fucked Rat: ${mostFucked}`;
 
   console.log(
-    "A link will appear below, copy that link into your browser, and send the email. "
+    "A link (starting with mailto: ) will appear below ( in blue ), copy that link into your browser, and send the email. "
   );
   console.log(
     chalk.blue(`mailto:benjcape@gmail.com?subject=${name}'s Sig&body=${body}`)
   );
 
-  await askQuestion("Once you've send the email, press enter.");
-
+  await br();
   console.log(
     "Now comes the interesting part, where you get to decide where you go, kind of like one of those do it yourself books you used to read in Middle School."
   );
   await br();
   console.log(
     chalk.green(
-      "I have chose 1010 different sigs for you to complete. Don't worry, it's not as much as you think."
+      "I have chose 1010 different sigs for you to complete. Don't worry, it's not as much as you think. - think binary"
     )
   );
-  await br();
   await confirmNumber();
+
+  divider();
 
   console.log(
     chalk.yellow(
@@ -93,7 +89,7 @@ const confirmNumber = async () => {
     )
   );
 
-  if (hexa !== "a") {
+  if (hexa.toLowerCase() !== "a") {
     console.log(`Sorry, that's not right, ${BLACK_BALL}x20, try again.`);
     await confirmNumber();
   } else {
@@ -191,9 +187,11 @@ const army2 = async () => {
   console.log(
     "Guns are very dangerous, so please, if you are not well versed in the techniques of using a firearm do not do so."
   );
+  await br();
   console.log(
     "That being said, everyone should know HOW to protect themselves. So for this SIG, you need to pick a gun ( ideally a handgun ), and write a safety briefing for use of that gun."
   );
+  await br();
   console.log(
     "Send me the safety briefing, I will approve it, and then you will present to the rest of ChiGam so they can also be safe gun owners"
   );
@@ -211,7 +209,6 @@ const compSci = async () => {
   console.log(
     "Wouldn't that be nice? More time to smoke, more time to chill with the boys, more time to get outside."
   );
-  console.log("....");
   await br();
   console.log(
     "But wait, why would I need a program to do my homework, when a rat can do my homework?"
@@ -224,9 +221,11 @@ const compSci = async () => {
   console.log(
     "At my company we use something called Amazon Web Services for a big portion of our coding. There are over 175 different Amazon services and products bundled in AWS."
   );
+  await br();
   console.log(
     "For this sig, find one that interests you, and teach me about it."
   );
+  await br();
   console.log(
     chalk.red(
       `${BLACK_BALL}x20 if it's one I already know about, or you tell me something I already know.`
@@ -288,8 +287,9 @@ const knitting = async () => {
   console.log(
     "Now, while I am a good knitting, I'm not always the best boyfriend. I told my girlfriend that I would knit her a pair of socks, and I never finished the second sock."
   );
+  await br();
   console.log(
-    "For this sig, knit/crochet something for my girlfriend. Her shoe size is a women's 6, her head is normal sized. Be creative. More points for creativity, and for complexity of the stick."
+    "For this sig, knit/crochet something for my girlfriend. Her shoe size is a women's 6, her head is normal sized. Be creative. More points for creativity, and for complexity of the stich."
   );
 };
 
@@ -308,12 +308,15 @@ const viewSigs = async () => {
   console.log(chalk.gray("6. Outdoors"));
   console.log(chalk.blueBright("7. Scotch"));
   console.log(chalk.white("8. Slack"));
-  console.log(chalk.white("9. Knitting"));
+  console.log(chalk.greenBright("9. Knitting"));
 
   const sigNum = await askQuestion(
     "Which Sig would you like more info on? (0-9) "
   );
+
   divider();
+  console.clear();
+
   if (sigNum === "0") await myHouse();
   if (sigNum === "1") await tikunOlam();
   if (sigNum === "2") await army1();
