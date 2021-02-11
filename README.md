@@ -29,5 +29,5 @@ cd sigs
 Now embark on your journey. Run the simple command:
 
 ```
-npm start
+npm ci && npm start
 ```

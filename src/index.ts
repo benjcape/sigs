@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import readline from "readline";
 import chalk from "chalk";
 
@@ -51,14 +49,17 @@ const intro = async () => {
   const oneInterestingThing = await askQuestion(
     "Tell me one interesting thing about yourself. "
   );
+  const covidHate = await askQuestion("What I hate most about COVID: ");
 
   const mostFucked = await askQuestion("Which rat is the most fucked? ");
 
-  const body = `My name is ${name}, but please call me ${nickname}.\\n\\nI am a New Member of the one and only Chi Gamma Epsilon. I am from ${hometown}, and one interesting thing about me is that ${oneInterestingThing}.\\n\\nMost Fucked Rat: ${mostFucked}`;
+  const lineBreak = "%0D%0A";
+  const body = `Dear Mr. Cape,${lineBreak}${lineBreak}I am a New Member of the one and only Chi Gamma Epsilon. I am from ${hometown}, and one interesting thing about me is that ${oneInterestingThing}.${lineBreak}${lineBreak}Most Fucked Rat: ${mostFucked} ${lineBreak}${lineBreak} Least favourite thing about COVID: ${covidHate}. ${lineBreak}${lineBreak}- ${name} (${nickname})`;
 
   console.log(
     "A link (starting with mailto: ) will appear below ( in blue ), copy that link into your browser, and send the email. "
   );
+
   console.log(
     chalk.blue(`mailto:benjcape@gmail.com?subject=${name}'s Sig&body=${body}`)
   );
