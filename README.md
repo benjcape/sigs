@@ -31,3 +31,7 @@ Now embark on your journey. Run the simple command:
 ```
 npm ci && npm start
 ```
+
+## Author
+
+Benjamin Cape '22
