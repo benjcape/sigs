@@ -2,6 +2,8 @@
 
 > CAYA - Come As You Are
 
+First and foremost, welcome to the house! I cannot wait to meet you all more formally, but for now, as tech companies are going remote, so are we!
+
 This might not be your normal sig venue, but don't think any less of it, you know what happens if you do.
 
 ## Requirements
