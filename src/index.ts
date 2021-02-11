@@ -246,7 +246,7 @@ const compSci = async () => {
 
 const scotch = async () => {
   console.log(
-    "Currently I'm living with a friend of mine from Hillel. While I love him, he prefers Whisky over Scotch. So fucked."
+    "Currently I'm living with a friend of mine from Hillel, also he's in AXA (so fucked). While I love him, he prefers Whisky over Scotch. So fucked x2."
   );
   await br();
   console.log(
