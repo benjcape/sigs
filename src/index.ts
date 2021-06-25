@@ -1,5 +1,6 @@
 import readline from "readline";
 import chalk from "chalk";
+import { readConfigFile } from "typescript";
 
 const WHITE_BALL = "⚪";
 const BLACK_BALL = "⚫ ";
@@ -296,6 +297,16 @@ const knitting = async () => {
   );
 };
 
+const recon = async () => {
+  console.log(
+    "Nick Shade comes around the house every so often, but I feel like I never see him elsewhere. I want full recon on Nick Shade."
+  );
+  await br();
+  console.log(
+    "Go find Nick Shade somewhere other than the house and bring me with you"
+  );
+};
+
 const viewSigs = async () => {
   console.log(
     "Welcome to the grand finale. Here you will get to view all of the 1010 sigs that you can accomplish for me. Enjoy!"
@@ -312,6 +323,7 @@ const viewSigs = async () => {
   console.log(chalk.blueBright("7. Scotch"));
   console.log(chalk.white("8. Slack"));
   console.log(chalk.greenBright("9. Knitting"));
+  console.log(chalk.greenBright("10. Recon"));
 
   const sigNum = await askQuestion(
     "Which Sig would you like more info on? (0-9) "
@@ -330,6 +342,7 @@ const viewSigs = async () => {
   if (sigNum === "7") await scotch();
   if (sigNum === "8") await slack();
   if (sigNum === "9") await knitting();
+  if (sigNum === "10") await recon();
   divider();
 
   const seeAgain = await askQuestion(
