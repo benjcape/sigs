@@ -43,6 +43,11 @@ const intro = async () => {
   );
 
   divider();
+
+  console.log(
+    "Before I get to the questions. Make sure you follow my instagrams: @benj_c, @knit_jew_a_sweater, you connect with me on LinkedIn, and you text me."
+  );
+
   const name = await askQuestion("What is your name? ");
   const nickname = await askQuestion("What is your nickname? ");
   const hometown = await askQuestion("Where are you from? ");
