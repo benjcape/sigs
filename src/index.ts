@@ -1,6 +1,5 @@
 import readline from "readline";
 import chalk from "chalk";
-import { readConfigFile } from "typescript";
 
 const WHITE_BALL = "⚪";
 const BLACK_BALL = "⚫ ";
@@ -50,12 +49,13 @@ const intro = async () => {
   const oneInterestingThing = await askQuestion(
     "Tell me one interesting thing about yourself. "
   );
-  const covidHate = await askQuestion("What I hate most about COVID: ");
 
-  const mostFucked = await askQuestion("Which rat is the most fucked? ");
+  const mostFucked = await askQuestion(
+    "Which intern is least guaranteed a return offer? "
+  );
 
   const lineBreak = "%0D%0A";
-  const body = `Dear Mr. Cape,${lineBreak}${lineBreak}I am a New Member of the one and only Chi Gamma Epsilon. I am from ${hometown}, and one interesting thing about me is that ${oneInterestingThing}.${lineBreak}${lineBreak}Most Fucked Rat: ${mostFucked} ${lineBreak}${lineBreak} Least favourite thing about COVID: ${covidHate}. ${lineBreak}${lineBreak}- ${name} (${nickname})`;
+  const body = `Dear Mr. Cape,${lineBreak}${lineBreak}I am a New Member of the one and only Chi Gamma Epsilon. I am from ${hometown}, and one interesting thing about me is that ${oneInterestingThing}.${lineBreak}${lineBreak}Most Fucked Intern: ${mostFucked} ${lineBreak}${lineBreak} ${lineBreak}${lineBreak}- ${name} (${nickname})`;
 
   console.log(
     "A link (starting with mailto: ) will appear below ( in blue ), copy that link into your browser, and send the email. "
@@ -72,7 +72,7 @@ const intro = async () => {
   await br();
   console.log(
     chalk.green(
-      "I have chose 1010 different sigs for you to complete. Don't worry, it's not as much as you think. - think binary"
+      "I have chosen 1010 different sigs for you to complete. Don't worry, it's not as much as you think. - think binary"
     )
   );
   await confirmNumber();
@@ -121,25 +121,15 @@ const recipe = async () => {
   );
 };
 
-const myHouse = async () => {
+const sleepyTime = async () => {
   console.log(
-    "As you all know, we are living in the midst of a global pandemic. But fuck that. I want to be close to friends, so I'm living around the Hanover area."
+    "As you all know, we are all students and have a lot of work to do all the time. I NEVER get enough sleep per night. But you SHOULD."
   );
-  const onCampus = await askQuestion(chalk.red("Are you on campus? (y/n) "));
-  if (onCampus === "y") {
-    console.log(
-      `Your next task is to figure out where I live, and take a photo of my house. While you're here, extra ${WHITE_BALL}s if you clear my driveway, and bring the mail to the front-door, which is actually behind the house.`
-    );
-  }
-  if (onCampus === "n") {
-    console.log(
-      "First of all, that sucks b/c this SIG was meant for people who are on campus."
-    );
-    await br();
-    console.log(
-      "BUT because we are an inclusive space, there will always be something for you to do. Find a yellow house close to where you live, send me a photo of you and the house and make a guess as to how many of keystones could fit inside the house, send me your guess."
-    );
-  }
+  await br();
+
+  console.log(
+    "Go for a nice spot on FFB, and take a nap. Bring a pillow, a blanket and an alarm clock. Make sure your alarm clock has the right music (Hannah Montana Theme song), and take a 30 minute nap!"
+  );
 };
 
 const tikunOlam = async () => {
@@ -156,7 +146,7 @@ const tikunOlam = async () => {
   );
 };
 
-const army1 = async () => {
+const beerMile = async () => {
   console.log(
     "For those who don't know, I served in the Israeli Military for almost two years."
   );
@@ -166,17 +156,15 @@ const army1 = async () => {
   );
   await br();
   console.log(
-    "This SIG, while it is meant to make you feel some of a soldiers pain, is also meant to help you get closer with your fellow brothers."
+    "This SIG, while it is meant to make you feel some of a soldiers pain."
   );
   await br();
   console.log(
-    "For this one, find 3 other brothers, and run 3km with them. The catch here, is you have to run the 3km together until you all run it in less than 12 min."
+    "For this one, find 3 other brothers, and run a beer mile! Occom is just abound a mile, so place a beer every 400m around the loop."
   );
   await br();
   console.log(`+${WHITE_BALL}x10 for each additional person who runs it.`);
-  console.log(
-    `+${WHITE_BALL}x50 for each additional minute you shed off the time`
-  );
+  console.log(`+${WHITE_BALL}x1000 if you beat Will Eaton's PR`);
 };
 
 const army2 = async () => {
@@ -215,11 +203,11 @@ const compSci = async () => {
   );
   await br();
   console.log(
-    "But wait, why would I need a program to do my homework, when a rat can do my homework?"
+    "But wait, why would I need a program to do my homework, when a intern can do my homework?"
   );
   await br();
   console.log(
-    "Lucky you, I'm not taking classes. Lucky me, the company I'm working at doesn't have an honor code as strict as Dartmouth's."
+    "Lucky you, I'm not taking classes ( wasn't this past year at least ). Lucky me, the company I'm working at doesn't have an honor code as strict as Dartmouth's."
   );
   await br();
   console.log(
@@ -245,13 +233,13 @@ const compSci = async () => {
   );
 };
 
-const scotch = async () => {
+const army3 = async () => {
   console.log(
-    "Currently I'm living with a friend of mine from Hillel, also he's in AXA (so fucked). While I love him, he prefers Whisky over Scotch. So fucked x2."
+    "This is a joint sig for Syed Tanveer, my esteemed big and the most respected guy in the House."
   );
   await br();
   console.log(
-    "For this sig, I want you to write him an email: matthew.S.Mann.21@dartmouth.edu and convince him that Scotch is better than Whisky."
+    "Interview Syed and me about our experiences in the military. After you've done that, write a haiku about Syed's experience on the USS John Paul Jones and write a Limerick about my experience with the Paratroopers. Send it to the Groupme."
   );
 };
 
@@ -263,22 +251,18 @@ const skiing = async () => {
   console.log("For this Sig, Go skiing with Ari.");
 };
 
-const slack = async () => {
+const slapsgiving = async () => {
   console.log(
-    "Since things have gone remote, a certain company, Slack, has gotten a ton of attention."
+    'Have you seen HIMYM? If not, go watch the episode titled "Slapsgiving". '
   );
   await br();
   console.log(
-    "In fact, they were recently acquired by another company, Salesforce. So fucked."
-  );
-  await br();
-  console.log(
-    "A bunch of different orgs on campus, and throughout the world, use Slack for communication."
+    "When I was a piggie I got the least sigs of anyone. But I did one sig that got me more whiteballs than I could have asked for."
   );
   await br();
   console.log(
     chalk.green(
-      "For this sig, make a slack workspace for the house. The name of the workspace should be CAYA, and add all of the brothers."
+      "For this sig, you gotta slap one of the NMEs. Real slap. no half-ass slaps. Full swing, 5-star mark across the cheek. Video evidence required."
     )
   );
 };
@@ -289,11 +273,13 @@ const knitting = async () => {
   );
   await br();
   console.log(
-    "Now, while I am a good knitting, I'm not always the best boyfriend. I told my girlfriend that I would knit her a pair of socks, and I never finished the second sock."
+    "Find me a cool pattern that you think I should knit, or knit me something cool."
   );
   await br();
   console.log(
-    "For this sig, knit/crochet something for my girlfriend. Her shoe size is a women's 6, her head is normal sized. Be creative. More points for creativity, and for complexity of the stich."
+    chalk.green(
+      "Extra white balls if you come knit with me at one wheelock sometime. "
+    )
   );
 };
 
@@ -303,7 +289,7 @@ const recon = async () => {
   );
   await br();
   console.log(
-    "Go find Nick Shade somewhere other than the house and bring me with you"
+    "Go find Nick Shade somewhere other than the house and get me photos of where he actually spends his time."
   );
 };
 
@@ -313,15 +299,15 @@ const viewSigs = async () => {
   );
 
   divider();
-  console.log(chalk.magenta("0. My House"));
+  console.log(chalk.magenta("0. Sleepy Time"));
   console.log(chalk.red("1. Tikun Olam"));
   console.log(chalk.yellow("2. Army #1"));
   console.log(chalk.green("3. Army #2"));
-  console.log(chalk.blue("4. CS"));
+  console.log(chalk.blue("4. AWS"));
   console.log(chalk.cyan("5. Food"));
   console.log(chalk.gray("6. Outdoors"));
-  console.log(chalk.blueBright("7. Scotch"));
-  console.log(chalk.white("8. Slack"));
+  console.log(chalk.blueBright("7. Army #3"));
+  console.log(chalk.white("8. Slapsgiving"));
   console.log(chalk.greenBright("9. Knitting"));
   console.log(chalk.greenBright("10. Recon"));
 
@@ -332,15 +318,15 @@ const viewSigs = async () => {
   divider();
   console.clear();
 
-  if (sigNum === "0") await myHouse();
+  if (sigNum === "0") await sleepyTime();
   if (sigNum === "1") await tikunOlam();
-  if (sigNum === "2") await army1();
+  if (sigNum === "2") await beerMile();
   if (sigNum === "3") await army2();
   if (sigNum === "4") await compSci();
   if (sigNum === "5") await recipe();
   if (sigNum === "6") await skiing();
-  if (sigNum === "7") await scotch();
-  if (sigNum === "8") await slack();
+  if (sigNum === "7") await army3();
+  if (sigNum === "8") await slapsgiving();
   if (sigNum === "9") await knitting();
   if (sigNum === "10") await recon();
   divider();
